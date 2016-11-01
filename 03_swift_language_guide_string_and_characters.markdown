@@ -28,7 +28,7 @@ variableString += " and carriage"
 
 print(variableString)
 
-let constantString = "Highlander"
+let constantString = "Highlander"		// constant string
 
 constantString += " and another Highlander"		// compile error
 ```
@@ -50,6 +50,8 @@ print(catString)
 ```
 
 ## String Interpolation
+
+類似 C 的 `print("%d, %s", a, b)` 的效果。
 
 ```swift
 let a = 1.0
@@ -209,23 +211,30 @@ print(cafe1 == cafe2 ? "yes": "no")	// yes
 
 ## Unicode Representation
 
+* UTF-8: **8bit** value with `UInt8`
+* UTF-16: **16bit** value with `UInt16`
+* UnicodeScalar: **21bit** value with `UInt32`
+
 ```swift
 let dog = "Dog‼🐶"
 
-print(dog)
+print("\(dog) has \(dog.characters.count) character(s)")
 
+print("utf-8 view")
 for c in dog.utf8 {
-    print("\(c) ")
+    print("\(c)", terminator: " ")
 }
 print()
 
+print("utf-16 view")
 for c in dog.utf16 {
-    print("\(c) ")
+    print("\(c)", terminator: " ")
 }
 print()
 
+print("unicode scalar view")
 for u in dog.unicodeScalars {
-    print("(\(u),\(u.value)) ")
+    print("(\(u),\(u.value))", terminator: " ")
 }
 print()
 ```
