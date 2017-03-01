@@ -77,18 +77,25 @@
 //a = nil					// 可以 assign nil
 //print(a)				// nil
 
-let possibleString: String? = "An optional string."
-print(possibleString!)
+//let possibleString: String? = "An optional string."
+//print(possibleString!)
 
-let assumedString: String! = "An implicitly unwrapped optional string."
-print(assumedString)
+//let assumedString: String! = "An implicitly unwrapped optional string."
+//print(assumedString)
 
-let c: String! = nil
-print(c)
+//let c: String! = nil
+//print(c)
 
-if let defined = c {
-  print(defined)
-}
-else {
-  print("not defined")
-}
+//if let defined = c {
+//  print(defined)
+//}
+//else {
+//  print("not defined")
+//}
+
+// Assignment
+var a = 10
+var b = a = 20
+
+print(a)
+print(b)
