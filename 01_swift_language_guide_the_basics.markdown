@@ -20,7 +20,7 @@ var b = 20 // variables, 之後可再修改值
 
 ```swift
 var a =  10, b = 1.0, c = "abc" // 在一行內，宣告多個變數
-	
+
 print("\(a), \(b), \(c)")	// String interpolation 功能
 ```
 
@@ -85,7 +85,7 @@ let binaryInt = 0b10001			// 二進位
 let octalInt = 0o21				// 八進位
 let hexInt = 0x11				// 十六進位
 
-printlprintn(decimalInt)
+print(decimalInt)
 print(binaryInt)
 print(octalInt)
 print(hexInt)
@@ -125,7 +125,7 @@ let d = 0xFp-2 		// 15 * 2^-2 = 3.75
 print(c)
 print(d)
 
-let e = 0xC.3p0	// C * 16^0 + 3 * 16^-1 = 12 + 3/16 = 12.1875 
+let e = 0xC.3p0	// C * 16^0 + 3 * 16^-1 = 12 + 3/16 = 12.1875
 print(e)
 ```
 
@@ -147,7 +147,7 @@ print(e)
 	```swift
 	let pi = 3.1415
 	let c = 3.6
-	
+
 	print(Int(pi))	// 3
 	print(Int(c))	// 3
 	```
@@ -161,7 +161,7 @@ typealias MyInt = Int64		// 定義一種新的資料型別，本質是 Int64
 print(MyInt.max)		// 9223372036854775807
 ```
 
-此功能通常是用來提高程式的可讀性。eg: 
+此功能通常是用來提高程式的可讀性。eg:
 
 ```swift
 typealias XYPoint = (x: Double, y: Double)
@@ -187,14 +187,22 @@ else {
 
 Bool 與數值間的轉換
 
-```swift
-print(Bool(-1)) 	// true
-print(Bool(0))      // false
-print(Bool(1))      // true
+~~print(Bool(-1))     // true~~    
+~~print(Bool(0))      // false~~  
+~~print(Bool(1))      // true~~
 
+```swift
 let a = 1
 
-if a {	
+if a {  
+}   // Compile Error
+
+
+if a == 1 {
+}   // Compile OK
+let a = 1
+
+if a {
 }	// Compile Error
 
 
