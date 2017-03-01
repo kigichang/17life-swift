@@ -35,7 +35,7 @@ constantString += " and another Highlander"		// compile error
 
 ## Strings are Value Type
 
-Swift’s String 是 **Value Type**. 與大多數的程式語言不同，像 Java 的 String 是 Reference Type。 
+Swift’s String 是 **Value Type**. 與大多數的程式語言不同，像 Java 的 String 是 Reference Type。
 
 ## String is a collection of Characters
 
@@ -167,28 +167,24 @@ print(greeting[greeting.index(greeting.startIndex, offsetBy: 7)])	// a
 var welcome = "hello"
 
 welcome.insert("!", at: welcome.endIndex)
-print(welcome)	// hello!
+print(welcome)  // hello!
 
 welcome.insert(contentsOf: " there".characters, at: welcome.index(before: welcome.endIndex))
-print(welcome)	// hello there!
+print(welcome)  // hello there!
 
-let range1 = welcome.index(welcome.startIndex, offsetBy: 2)..<welcome.index(welcome.endIndex, offsetBy: -1)
-print(welcome.substring(with: range1))	// llo there
+let range = welcome.index(welcome.endIndex, offsetBy: -6)..<welcome.endIndex
+welcome.removeSubrange(range)
 
 welcome.remove(at: welcome.index(before: welcome.endIndex))
-print(welcome)	// hello there
-
-let range2 = welcome.index(welcome.endIndex, offsetBy: -6)...welcome.index(before: welcome.endIndex)
-welcome.removeSubrange(range2)
-print(welcome)	// hello
+print(welcome)  // hello there
 ```
 
-1. `substring` 不能使用 `ClosedRange` 也就是 `...` 產生的 `Range`
+~~1. `substring` 不能使用 `ClosedRange` 也就是 `...` 產生的 `Range`~~
 
 
 ## Comparing Strings
 
-直接使用 `==` or `!=` 來比較是否相同。eg: 
+直接使用 `==` or `!=` 來比較是否相同。eg:
 
 ```swift
 let a = "abc"
