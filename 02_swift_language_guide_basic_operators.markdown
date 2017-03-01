@@ -10,14 +10,14 @@ Swift 的運算與 C, Java 等，大部份都相同，以下僅撰寫新增、�
 	```swift
 	if x = y { <-- Error
 	}
-	```	
+	```
 
 * Assignment with Tuple and Swap
 
 	```swift
 	var (x, y) = (1, 2)
 	print("(x, y) = (\(x), \(y))")
-	
+
 	(x, y) = (y, x)
 	print("(x, y) = (\(x), \(y))")
 	```
@@ -45,7 +45,7 @@ print((4, "dog") == (4, "dog"))		// true
 
 ## Ternary
 
-```
+```swift
 question ? answer1 : answer2
 ```
 
@@ -63,7 +63,7 @@ equals
 a != nil ? a! : b
 ```
 
-eg: 
+eg:
 
 ```swift
 let possibleNumber = "123"
