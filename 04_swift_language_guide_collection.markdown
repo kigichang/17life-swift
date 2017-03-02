@@ -6,6 +6,12 @@
 
 **Immutable** (`let`, assign collection as **Constant**) collection **cannot be** changed its size and content.
 
+```swift
+let constantArray: [Int] = [1, 2, 3]
+
+constantArray[0] = 10   // Compile Error
+```
+
 ## Array
 
 `Array` is bridged to `NSArray`
@@ -16,9 +22,9 @@
 
 ```swift
 var someInts1 = [Int]()
-	
+
 var someInts2:[Int] = []
-	
+
 var someInts3: Array<Int> = []
 ```
 
@@ -27,25 +33,25 @@ var someInts3: Array<Int> = []
 ```swift
 var treeDoubles1 = Array(repeating: 0.0, count: 3)
 print(treeDoubles1)
-	
+
 var treeDoubles2 = [Double](repeating: 10.0, count: 3)
 print(treeDoubles2)
-	
+
 var shoppingList1: [String] = ["Eggs", "Milk"]
 print(shoppingList1)
-	
+
 var shoppingList2 = ["Eggs", "Milk"]		// short term
 print(shoppingList2)
-	
+
 if shoppingList2.isEmpty {
     print("An empty list")
 }
 else {
     print("The shopping list contains \(shoppingList2.count) items")
 }
-	
+
 shoppingList2 = []	// empty an Array
-	
+
 if shoppingList2.isEmpty {
     print("An empty list")
 }
@@ -60,15 +66,15 @@ else {
 
 ```swift
 var shoppingList = ["Eggs", "Milk"]
-	
+
 for item in shoppingList {
     print(item)
 }
-	
+
 for (index, item) in shoppingList.enumerated() {
     print("\(index): \(item)")
 }
-	
+
 func dumpArray<T>(_ array: [T]) {
     for (index, element) in array.enumerated() {
         print("(\(index), \(element))", terminator: " ")
@@ -192,7 +198,7 @@ func dump<T: Collection>(_ seq: EnumeratedSequence<T>) {
 }
 
 func dumpSet<T: Hashable>(_ set: Set<T>, sorted: Bool = false, order: (T, T) -> Bool = { (a, b) in return a.hashValue > b.hashValue }) {
-    
+
     if sorted {
         dump(set.sorted(by: order).enumerated())
     }
@@ -214,7 +220,7 @@ func dump<T: Collection>(_ seq: EnumeratedSequence<T>) {
 }
 
 func dumpSet<T: Hashable>(_ set: Set<T>, sorted: Bool = false, order: (T, T) -> Bool = { (a, b) in return a.hashValue > b.hashValue }) {
-    
+
     if sorted {
         dump(set.sorted(by: order).enumerated())
     }
