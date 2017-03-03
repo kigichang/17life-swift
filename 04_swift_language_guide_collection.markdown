@@ -74,13 +74,6 @@ for item in shoppingList {
 for (index, item) in shoppingList.enumerated() {
     print("\(index): \(item)")
 }
-
-func dumpArray<T>(_ array: [T]) {
-    for (index, element) in array.enumerated() {
-        print("(\(index), \(element))", terminator: " ")
-    }
-    print()
-}
 ```
 
 ### Append
@@ -95,13 +88,13 @@ var shoppingList = ["Eggs", "Milk"]
 print("The shopping list contains \(shoppingList.count) items")    // get array size
 
 shoppingList.append("Flour")        // add one item
-dumpArray(shoppingList)
+dump(shoppingList)
 
 shoppingList += ["Baking Powder"]   // append an array with one item
-dumpArray(shoppingList)
+dump(shoppingList)
 
 shoppingList += ["Chocolate Spread", "Cheese", "Butter"]    // append an array with more than one items
-dumpArray(shoppingList)
+dump(shoppingList)
 ```
 
 ### Insert and Replace
@@ -115,28 +108,28 @@ dumpArray(shoppingList)
 var firstItem = shoppingList[0]
 
 shoppingList[0] = "Six Eggs"    // replace first item
-dumpArray(shoppingList)
+dump(shoppingList)
 
 shoppingList[2...3] = ["Bananas", "Apples"]     // replace Flour, Baking Powder with Bananas, Apples
-dumpArray(shoppingList)
+dump(shoppingList)
 
 shoppingList[2..<4] = ["Bananas", "Apples"]     // the same as [2...3]
-dumpArray(shoppingList)
+dump(shoppingList)
 
 shoppingList[2...4] = ["Bananas", "Apples"]     // replace Flour, Baking Powder with Bananas, Apples and remove Chocolate Spread
-dumpArray(shoppingList)
+dump(shoppingList)
 
 shoppingList.insert("Mapple Syrup", at: 0)      // first item is Mapple Syrup
-dumpArray(shoppingList)
+dump(shoppingList)
 
 let mappleSyrup = shoppingList.remove(at: 0)
 //let mappleSyrup = shoppingList.remove(at: shoppingList.startIndex)	// the same as .remove(at: 0)
-dumpArray(shoppingList)
+dump(shoppingList)
 
 
 let butter = shoppingList.removeLast()
 //let butter = shoppingList.remove(at: shoppingList.index(before: shoppingList.endIndex))		// the same as .removeLast()
-dumpArray(shoppingList)
+dump(shoppingList)
 ```
 
 ## Set
@@ -189,24 +182,6 @@ for (index, genre) in favoriteGenres.enumerated() {
 for (index, genre) in favoriteGenres.sorted().enumerated() {
     print("(\(index), \(genre))", terminator: " ")
 }
-
-// summary dump function
-func dump<T: Collection>(_ seq: EnumeratedSequence<T>) {
-    for (index, item) in seq {
-        print("(\(index), \(item))", terminator: " ")
-    }
-}
-
-func dumpSet<T: Hashable>(_ set: Set<T>, sorted: Bool = false, order: (T, T) -> Bool = { (a, b) in return a.hashValue > b.hashValue }) {
-
-    if sorted {
-        dump(set.sorted(by: order).enumerated())
-    }
-    else {
-        dump(set.enumerated())
-    }
-    print()
-}
 ```
 
 ### Insert, Remove, Contains
@@ -219,7 +194,7 @@ func dump<T: Collection>(_ seq: EnumeratedSequence<T>) {
     }
 }
 
-func dumpSet<T: Hashable>(_ set: Set<T>, sorted: Bool = false, order: (T, T) -> Bool = { (a, b) in return a.hashValue > b.hashValue }) {
+func dump<T: Hashable>(_ set: Set<T>, sorted: Bool = false, order: (T, T) -> Bool = { (a, b) in return a.hashValue > b.hashValue }) {
 
     if sorted {
         dump(set.sorted(by: order).enumerated())
@@ -231,13 +206,13 @@ func dumpSet<T: Hashable>(_ set: Set<T>, sorted: Bool = false, order: (T, T) -> 
 }
 
 var favoriteGenres: Set<String> = ["Rock", "Classical", "Hip hop"]
-dumpSet(favoriteGenres)
+dump(favoriteGenres)
 
 favoriteGenres.insert("Jazz")
-dumpSet(favoriteGenres)
+dump(favoriteGenres)
 
 let rock = favoriteGenres.remove("Rock")
-dumpSet(favoriteGenres)
+dump(favoriteGenres)
 
 if let metal = favoriteGenres.remove("Heavy Metal") {
     print("\(metal) removed")
@@ -365,15 +340,8 @@ var notOK: [AnyHashable: Any] = ["a": 1, 2: "B", "c": 3.0]	// compile ok, but ve
 #### Count, isEmpty, Iterate
 
 ```swift
-func dumpDict<T: Hashable, U>(_ dict: [T: U]) {
-    for (key, value) in dict {
-        print("(\(key), \(value))", terminator: " ")
-    }
-    print()
-}
-
 var airports: [String: String] = ["XYZ": "Toronto Pearson", "DUB": "Dublin"]
-dumpDict(airports)
+dump(airports)
 
 print("The airports dictionary contains \(airports.count) items")
 
@@ -389,7 +357,6 @@ else {
 
 ```swift
 var a = airports["XYZ"]		// a is an Optional Type
-var a = airports["XYZ"]
 a?.append("XYZ")
 print(a)		// Optional("Toronto PearsonXYZ")
 
@@ -402,9 +369,9 @@ airports["LHR"] = "London"		// update value
 var c = airports.updateValue("London", forKey: "LHR")	// update value and get old value, c is an Optional Type
 print(c)
 
-dumpDict(airports)
+dump(airports)
 airports["XYZ"] = nil	// remove value with assigning nil
-dumpDict(airports)
+dump(airports)
 let d = airports.removeValue(forKey: "ABC")	// remove value and get it. d is an Optional value
 print(d)
 ```
