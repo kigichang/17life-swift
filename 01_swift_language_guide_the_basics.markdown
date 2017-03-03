@@ -4,7 +4,7 @@
 
 * Swift 是一種 type-safe 語言，因此變數的型別決定後，就不能再更改。
 * Swift 提供 Objective-C 沒有的型別: **Tuple**。
-* Swift 提供 Optional 的功能，類似 `nil` 但可以用在任何一種資料型別上。
+* Swift 提供 Optional 的功能，`nil` 可以用在任何一種 Optional 資料型別上。
 
 
 ## Constants and Variables
